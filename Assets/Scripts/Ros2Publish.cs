@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ROS2;
+
 public class Ros2Publish : MonoBehaviour {
   private Ros2Start ros2Publisher;
   private IPublisher<std_msgs.msg.Header> action_pub;
-  int n;
-
+  private int n;
 
   void Update() {
-    if (ros2Publisher==null) {
-      ros2Publisher=GetComponent<Ros2Start>();
+    if (ros2Publisher == null) {
+      ros2Publisher = Ros2Start.Instance;
     }
   }
 
 
-  public void OnUpButtonPress() {
+  public void OnUpNeuroButtonPress() {
     n++;
-    Debug.Log("Button clicked " + n + " times.");
-    if(ros2Publisher!=null && ros2Publisher.action_pub!=null) {
+    Debug.Log("NeuroButton clicked " + n + " times.");
+    if(ros2Publisher != null && ros2Publisher.action_pub != null) {
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
         
       msg.Frame_id = "ACT_/Up";
@@ -27,10 +27,10 @@ public class Ros2Publish : MonoBehaviour {
   }
 
 
-  public void OnDownButtonPress() {
+  public void OnDownNeuroButtonPress() {
     n++;
-    Debug.Log("Button clicked " + n + " times.");
-    if(ros2Publisher!=null && ros2Publisher.action_pub!=null) {
+    Debug.Log("NeuroButton clicked " + n + " times.");
+    if(ros2Publisher != null && ros2Publisher.action_pub != null) {
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
         
       msg.Frame_id = "ACT_/Down";
@@ -39,10 +39,10 @@ public class Ros2Publish : MonoBehaviour {
   }
 
 
-  public void OnLeftButtonPress() {
+  public void OnLeftNeuroButtonPress() {
     n++;
-    Debug.Log("Button clicked " + n + " times.");
-    if(ros2Publisher!=null && ros2Publisher.action_pub!=null) {
+    Debug.Log("NeuroButton clicked " + n + " times.");
+    if(ros2Publisher != null && ros2Publisher.action_pub != null) {
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
         
       msg.Frame_id = "ACT_/Left";
@@ -51,10 +51,10 @@ public class Ros2Publish : MonoBehaviour {
   }
 
 
-  public void OnRightButtonPress() {
+  public void OnRightNeuroButtonPress() {
     n++;
-    Debug.Log("Button clicked " + n + " times.");
-    if(ros2Publisher!=null && ros2Publisher.action_pub!=null) {
+    Debug.Log("NeuroButton clicked " + n + " times.");
+    if(ros2Publisher != null && ros2Publisher.action_pub != null) {
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
         
       msg.Frame_id = "ACT_/Right";
