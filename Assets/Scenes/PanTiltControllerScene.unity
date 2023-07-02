@@ -298,7 +298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1980682616792111063, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnLeftButtonPress
+      value: OnLeftNeuroButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7352336319789411421, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -310,7 +310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352336319789411421, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnLeftButtonPress
+      value: OnLeftNeuroButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7391780196940650219, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_Name
@@ -670,7 +670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1980682616792111063, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnUpButtonPress
+      value: OnUpNeuroButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7352336319789411421, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -682,7 +682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352336319789411421, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnUpButtonPress
+      value: OnUpNeuroButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7391780196940650219, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_Name
@@ -1197,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1980682616792111063, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnDownButtonPress
+      value: OnDownNeuroButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7352336319789411421, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1209,7 +1209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352336319789411421, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnDownButtonPress
+      value: OnDownNeuroButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7391780196940650219, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_Name
@@ -1681,7 +1681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7391780196940650219, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_Name
-      value: NeuroButton
+      value: GetQRNeuroButton
       objectReference: {fileID: 0}
     - target: {fileID: 8434323560022692099, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_text
@@ -1851,7 +1851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1980682616792111063, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnRightButtonPress
+      value: OnRightNeuroButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7352336319789411421, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1863,7 +1863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352336319789411421, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: onTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnRightButtonPress
+      value: OnRightNeuroButtonPress
       objectReference: {fileID: 0}
     - target: {fileID: 7391780196940650219, guid: b6ebf03125ffd3842aec201e88857742, type: 3}
       propertyPath: m_Name
