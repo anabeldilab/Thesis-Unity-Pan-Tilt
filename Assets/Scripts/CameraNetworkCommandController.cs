@@ -10,46 +10,104 @@ public class CameraNetworkCommandController : MonoBehaviour {
   public TMPro.TMP_InputField setStateInputField;
 
   public void SendRestartCommand() {
+    responseText.text = "";
     if (cameraInfo.GetState() == false) {
+      Debug.Log("Camera is not enabled");
+      responseText.text = "Command error: Camera is not enabled";
       return;
     }
     string command = "/app?app=0&value=0";
+    Debug.Log("Sending command: " + command);
     StartCoroutine(SendCommand(command));
   }
 
 
   public void RequestCurrentState() {
+    responseText.text = "";
     if (cameraInfo.GetState() == false) {
+      Debug.Log("Camera is not enabled");
+      responseText.text = "Command error: Camera is not enabled";
       return;
     }
     string command = "/app?app=1&value=0";
+    Debug.Log("Sending command: " + command);
     StartCoroutine(SendCommand(command));
   }
 
 
   public void SetState() {
-    
+    responseText.text = "";
     if (cameraInfo.GetState() == false) {
+      Debug.Log("Camera is not enabled");
+      responseText.text = "Command error: Camera is not enabled";
       return;
     }
     int stateValue;
     if(int.TryParse(setStateInputField.text, out stateValue)) {
         Debug.Log(cameraInfo);
         string command = "/app?app=2&value=" + stateValue;
+        Debug.Log("Sending command: " + command);
         StartCoroutine(SendCommand(command));
     } else {
         Debug.Log("Input value is not a valid integer");
+        responseText.text = "Command error: Input value is not a valid integer";
     }
   }
 
-// app=3 para parar el stream
 
-// app=4 para reiniciar la camara
+  public void StopStream() {
+    responseText.text = "";
+    if (cameraInfo.GetState() == false) {
+      Debug.Log("Camera is not enabled");
+      responseText.text = "Command error: Camera is not enabled";
+      return;
+    }
+    string command = "/app?app=3&value=0";
+    Debug.Log("Sending command: " + command);
+    StartCoroutine(SendCommand(command));
+  }
 
-// app=5&value=0 para pillar el qr
+
+  public void StopCamera() {  // TODO: This is not working
+    responseText.text = "";
+    if (cameraInfo.GetState() == false) {
+      Debug.Log("Camera is not enabled");
+      responseText.text = "Command error: Camera is not enabled";
+      return;
+    }
+    string command = "/app?app=3&value=1";
+    Debug.Log("Sending command: " + command);
+    StartCoroutine(SendCommand(command));
+  }
+
+
+  public void RestartCamera() {
+    responseText.text = "";
+    if (cameraInfo.GetState() == false) {
+      Debug.Log("Camera is not enabled");
+      responseText.text = "Command error: Camera is not enabled";
+      return;
+    }
+    string command = "/app?app=4&value=0";
+    Debug.Log("Sending command: " + command);
+    StartCoroutine(SendCommand(command));
+  }
+
+
+  public void GetQR() {
+    responseText.text = "";
+    if (cameraInfo.GetState() == false) {
+      Debug.Log("Camera is not enabled");
+      responseText.text = "Command error: Camera is not enabled";
+      return;
+    }
+    string command = "/app?app=5&value=0";
+    Debug.Log("Sending command: " + command);
+    StartCoroutine(SendCommand(command));
+  }
+
 
   private IEnumerator SendCommand(string command) {
-    // Construye la URL completa para la petición
     string fullUrl = cameraInfo.GetUrlApiRest() + command;
     Debug.Log(fullUrl);
 

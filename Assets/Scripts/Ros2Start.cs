@@ -42,7 +42,7 @@ public class Ros2Start : MonoBehaviour {
           messageQueue.Enqueue(msg);
         });
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
-      msg.Frame_id = "NULL/";
+      msg.Frame_id = "CON_/CAM";
       action_pub.Publish(msg);
     }
   }

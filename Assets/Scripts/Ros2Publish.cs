@@ -6,7 +6,7 @@ using ROS2;
 public class Ros2Publish : MonoBehaviour {
   private Ros2Start ros2Publisher;
   private IPublisher<std_msgs.msg.Header> action_pub;
-  private int n;
+
 
   void Update() {
     if (ros2Publisher == null) {
@@ -15,9 +15,37 @@ public class Ros2Publish : MonoBehaviour {
   }
 
 
+  public void OnConnectSAPButtonPress() {
+    if(ros2Publisher != null && ros2Publisher.action_pub != null) {
+      std_msgs.msg.Header msg = new std_msgs.msg.Header();
+        
+      msg.Frame_id = "CON_/SAP";
+      ros2Publisher.action_pub.Publish(msg);
+    }
+  }
+
+
+  public void OnDisconnectSAPButtonPress() {
+    if(ros2Publisher != null && ros2Publisher.action_pub != null) {
+      std_msgs.msg.Header msg = new std_msgs.msg.Header();
+        
+      msg.Frame_id = "CON_/DIS";
+      ros2Publisher.action_pub.Publish(msg);
+    }
+  }
+
+
+  public void OnIPCameraPress() {
+    if(ros2Publisher != null && ros2Publisher.action_pub != null) {
+      std_msgs.msg.Header msg = new std_msgs.msg.Header();
+        
+      msg.Frame_id = "CON_/CAM";
+      ros2Publisher.action_pub.Publish(msg);
+    }
+  }
+
+
   public void OnUpNeuroButtonPress() {
-    n++;
-    Debug.Log("NeuroButton clicked " + n + " times.");
     if(ros2Publisher != null && ros2Publisher.action_pub != null) {
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
         
@@ -28,8 +56,6 @@ public class Ros2Publish : MonoBehaviour {
 
 
   public void OnDownNeuroButtonPress() {
-    n++;
-    Debug.Log("NeuroButton clicked " + n + " times.");
     if(ros2Publisher != null && ros2Publisher.action_pub != null) {
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
         
@@ -40,8 +66,6 @@ public class Ros2Publish : MonoBehaviour {
 
 
   public void OnLeftNeuroButtonPress() {
-    n++;
-    Debug.Log("NeuroButton clicked " + n + " times.");
     if(ros2Publisher != null && ros2Publisher.action_pub != null) {
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
         
@@ -52,8 +76,6 @@ public class Ros2Publish : MonoBehaviour {
 
 
   public void OnRightNeuroButtonPress() {
-    n++;
-    Debug.Log("NeuroButton clicked " + n + " times.");
     if(ros2Publisher != null && ros2Publisher.action_pub != null) {
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
         

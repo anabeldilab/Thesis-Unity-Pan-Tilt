@@ -41,22 +41,37 @@ public class Ros2SubscriberHandler : MonoBehaviour
   void ProcessReceivedMessage(std_msgs.msg.Header msg) {
     string[] parts = msg.Frame_id.Split(' ');
 
-    // Comprobamos si el mensaje comienza con "Ip assigned to a non-target station"
     if (parts.Length >= 6 && parts[0] == "Ip" && parts[1] == "assigned" && parts[2] == "to" && parts[3] == "a" && parts[4] == "non-target" && parts[5] == "station") {
       CameraEnabled = true;
       CameraIP= parts[6];
-      Debug.Log("La IP de la cámara es: " + CameraIP);
+      Debug.Log("IP camera: " + CameraIP);
+    }
+
+    if (parts.Length >= 3 && parts[0] == "Camera" && parts[1] == "ip:") {
+      CameraEnabled = true;
+      CameraIP = parts[2];
+      Debug.Log("IP camera: " + CameraIP);
     }
 
     if (parts.Length >= 2 && parts[0] == "Station" && parts[1] == "disconnected") {
       CameraEnabled = false;
       CameraIP = "No camera IP";
-      Debug.Log("La cámara no está habilitada");
+      Debug.Log("Camera disabled");
     }
 
     if (parts.Length >= 4 && parts[0] == "Wifi" && parts[1] == "init" &&  parts[2] == "softap" && parts[3] == "finished") {
       ESP32Enabled = true;
-      Debug.Log("ESP32 como AP está habilitado");
+      Debug.Log("ESP32 enabled");
     }
+
+    //Unity listener heard: [Stopping WiFi in base station]
+    if (parts.Length >= 4 && parts[0] == "Stopping" && parts[1] == "WiFi" &&  parts[2] == "in" && parts[3] == "base" && parts[4] == "station") {
+      ESP32Enabled = false;
+      Debug.Log("ESP32 disabled");
+      CameraIP = "No camera IP";
+      CameraEnabled = false;
+    }
+
+
   }
 }
