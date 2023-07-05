@@ -16,8 +16,10 @@ using System.Net;
 using UnityEngine;
 
 public class ImageStreamUrl : MonoBehaviour {
-  public CameraInfo cameraInfo;
-  public TMPro.TextMeshProUGUI errorText;
+  public static ImageStreamUrl Instance { get; private set; }
+
+  private CameraInfo cameraInfo;
+  private TMPro.TextMeshProUGUI errorText;
 
   [SerializeField] bool tryOnStart = false;
 
@@ -35,6 +37,19 @@ public class ImageStreamUrl : MonoBehaviour {
   static System.Random randu; // I use my own System.Random instead of the shared UnityEngine.Random to avoid collisions
   List<BufferedStream> trackedBuffers = new List<BufferedStream>();
 
+  private void Awake() {
+    if (Instance != null) {
+      Destroy(gameObject);
+      return;
+    }
+    Instance = this;
+    DontDestroyOnLoad(gameObject);
+  }
+
+  public void Initialize(CameraInfo camInfo, TMPro.TextMeshProUGUI errText) {
+    cameraInfo = camInfo;
+    errorText = errText;
+  }
 
   void Start() {
     randu = new System.Random(Random.Range(0, 65536));

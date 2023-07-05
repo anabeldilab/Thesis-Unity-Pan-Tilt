@@ -68,7 +68,7 @@ public class CameraNetworkCommandController : MonoBehaviour {
   }
 
 
-  public void StopCamera() {  // TODO: This is not working
+  public void ContinueMode() {  // TODO: This is not working
     responseText.text = "";
     if (cameraInfo.GetState() == false) {
       Debug.Log("Camera is not enabled");

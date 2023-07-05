@@ -27,12 +27,16 @@ public class Ros2Start : MonoBehaviour {
     Instance = this;
     DontDestroyOnLoad(gameObject);
 
+    Debug.Log("Starting ROS2 node");
+
     ros2Unity = GetComponent<ROS2UnityComponent>();
     if (ros2Unity.Ok()) {
       ros2Node = ros2Unity.CreateNode("ROS2UnityPublisherSubscriberNode");
+      Debug.Log("Starting ROS2 node 2");
     } else {
       Debug.Log("Ros2Unity was not created OK");
     }
+
 
     if (ros2Unity.Ok()) {
       action_pub = ros2Node.CreatePublisher<std_msgs.msg.Header>("action"); 
@@ -44,6 +48,8 @@ public class Ros2Start : MonoBehaviour {
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
       msg.Frame_id = "CON_/CAM";
       action_pub.Publish(msg);
+    } else {
+      Debug.Log("ROS2UnityComponent was not created OK");
     }
   }
 

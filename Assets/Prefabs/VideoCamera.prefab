@@ -260,8 +260,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3785974951997879159}
-  - component: {fileID: 6111193880866606586}
-  - component: {fileID: 2462207965328829488}
+  - component: {fileID: 3955146666499909609}
+  - component: {fileID: 3245924729184037407}
   m_Layer: 0
   m_Name: VideoCamera
   m_TagString: Untagged
@@ -287,7 +287,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6111193880866606586
+--- !u!114 &3955146666499909609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,13 +296,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2607164052354425455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9cb7efd069b30e43abb39d009f45861, type: 3}
+  m_Script: {fileID: 11500000, guid: 564a73e46e4e2be4c906ccc80ab5e272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraInfo: {fileID: 2462207965328829488}
-  tryOnStart: 0
-  renderTexture: {fileID: 8400000, guid: c6bf0576b2ce9bb428e3b3d0d98916d5, type: 2}
---- !u!114 &2462207965328829488
+  cameraInfo: {fileID: 0}
+  errorText: {fileID: 0}
+--- !u!114 &3245924729184037407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
