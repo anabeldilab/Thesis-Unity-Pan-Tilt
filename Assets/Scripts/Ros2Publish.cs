@@ -54,6 +54,15 @@ public class Ros2Publish : MonoBehaviour {
     }
   }
 
+  public void PublishReset() {
+    if(ros2Publisher != null && ros2Publisher.action_pub != null) {
+      std_msgs.msg.Header msg = new std_msgs.msg.Header();
+        
+      msg.Frame_id = "ACT_/Reset";
+      ros2Publisher.action_pub.Publish(msg);
+    }
+  }
+
 
   public void OnDownNeuroButtonPress() {
     if(ros2Publisher != null && ros2Publisher.action_pub != null) {

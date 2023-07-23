@@ -37,7 +37,6 @@ public class Ros2Start : MonoBehaviour {
       Debug.Log("Ros2Unity was not created OK");
     }
 
-
     if (ros2Unity.Ok()) {
       action_pub = ros2Node.CreatePublisher<std_msgs.msg.Header>("action"); 
       esp32_sub = ros2Node.CreateSubscription<std_msgs.msg.Header>("freertos_header_log", 
@@ -47,11 +46,13 @@ public class Ros2Start : MonoBehaviour {
         });
       std_msgs.msg.Header msg = new std_msgs.msg.Header();
       msg.Frame_id = "CON_/CAM";
+      Debug.Log(msg.Frame_id);
       action_pub.Publish(msg);
     } else {
       Debug.Log("ROS2UnityComponent was not created OK");
     }
   }
+
 
   void Update() {
     while (messageQueue.TryDequeue(out std_msgs.msg.Header msg)) {

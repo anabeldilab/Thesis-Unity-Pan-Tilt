@@ -24,5 +24,4 @@ public class CameraInfo : MonoBehaviour {
     }
     return "http://" + GetIP() + ":80";
   }
-
 }

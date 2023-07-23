@@ -7,12 +7,10 @@ public class CameraStatusUI : MonoBehaviour {
   public CameraInfo cameraInfo;
   public Image statusImage;
 
-  // text (TMP) to show the IP address
   public TMPro.TextMeshProUGUI ipText;
 
   // Start is called before the first frame update
   void Start() {
-    // Assume cameraInfo and Image are attached to the GameObject
     if (cameraInfo == null) {
       cameraInfo = GetComponent<CameraInfo>();
     }
