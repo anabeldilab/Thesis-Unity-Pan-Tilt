@@ -25,7 +25,6 @@ public class ImageStreamUrl : MonoBehaviour {
 
   [SerializeField] RenderTexture renderTexture;
 
-  //float RETRY_DELAY = 5f;
   int MAX_RETRIES = 3;
   int retryCount = 0;
 
@@ -34,7 +33,7 @@ public class ImageStreamUrl : MonoBehaviour {
   Thread worker;
   int threadID = 0;
 
-  static System.Random randu; // I use my own System.Random instead of the shared UnityEngine.Random to avoid collisions
+  static System.Random randu;
   List<BufferedStream> trackedBuffers = new List<BufferedStream>();
 
   private void Awake() {
@@ -114,7 +113,7 @@ public class ImageStreamUrl : MonoBehaviour {
     int newByte;
     while (buffer != null) {
       if (threadID != id) {
-        return; // We are no longer the active thread! stop doing things damnit!
+        return;
       }
       if (!buffer.CanRead) {
         Debug.LogError("Can't read buffer!");
@@ -128,26 +127,25 @@ public class ImageStreamUrl : MonoBehaviour {
       }
       catch {
         errorText.text = "Error: " + "Stream read error";
-        break; // Something happened to the stream, start a new one
+        break;
       }
 
       if (newByte < 0) {
-        continue; // End of data
+        continue;
       }
 
       if (addToBuffer) {
         frameBuffer.Add((byte)newByte);
       }
 
-      // It's a command!
       if (lastByte == 0xFF) {
-        if (!addToBuffer) { // We're not reading a frame, should we be?
+        if (!addToBuffer) {
           if (IsStartOfImage(newByte)) {
             addToBuffer = true;
             frameBuffer.Add((byte)lastByte);
             frameBuffer.Add((byte)newByte);
           }
-        } else { // We're reading a frame, should we stop?
+        } else {
           if (newByte == 0xD9) {
             frameBuffer.Add((byte)newByte);
             addToBuffer = false;
@@ -186,7 +184,6 @@ public class ImageStreamUrl : MonoBehaviour {
         Debug.Log("Command DHT");
         break;
       case 0xD8:
-        //Debug.Log("Command DQT");
         return true;
       case 0xDD:
         Debug.Log("Command DRI");
@@ -208,14 +205,11 @@ public class ImageStreamUrl : MonoBehaviour {
   void SendFrame(byte[] bytes) {
     Texture2D texture2D = new Texture2D(2, 2);
     texture2D.LoadImage(bytes);
-    //Debug.LogFormat("Loaded {0}b image [{1},{2}]", bytes.Length, texture2D.width, texture2D.height);
-
     if (texture2D.width == 2) {
       errorText.text = "Error: " + "Bad image data";
       return;
     }
-
     Graphics.Blit(texture2D, renderTexture);
-    Destroy(texture2D); // LoadImage discards the previous buffer, so there's no point in trying to reuse it
+    Destroy(texture2D);
   }
 }
