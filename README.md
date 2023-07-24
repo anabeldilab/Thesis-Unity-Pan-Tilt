@@ -14,7 +14,7 @@ This project uses Unity version 2022.3.3f1.
 ## Prerequisites
 To run this project, you will need:
 
-Unity 2020.3.14f1
+Unity 2022.3.3f1
 NextMind SDK installed and set up in Unity
 ROS2-For-Unity library installed in Unity
 
