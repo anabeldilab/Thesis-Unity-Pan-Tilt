@@ -9,7 +9,7 @@ The Unity application serves as the interface for BCI control. I've chosen Unity
 The Unity application I'm building hosts four neurotags for the user to interact with. Each neurotag is associated with a specific command that will be sent to an electromechanical pan-tilt device. The application utilizes the ROS2-For-Unity library to facilitate communication between the Unity application and the ROS nodes controlling the pan-tilt device.
 
 ## Version
-This project uses Unity version 2020.3.14f1.
+This project uses Unity version 2022.3.3f1.
 
 ## Prerequisites
 To run this project, you will need:
@@ -22,6 +22,8 @@ ROS2-For-Unity library installed in Unity
 Detailed instructions for how to install and setup the project will be added soon.
 
 ## Usage
+First, it is necessary to take into account that you have to go to the Scenes folder of the project and open the main scene, in this case, "PanTiltControllerScene".
+
 To successfully use this application, it is crucial to correctly position the NextMind device on your head, as it will serve as the primary user interface. Correct positioning is fundamental for ensuring the system's precise operation.
 
 The calibration process for the NextMind device is straightforward and can be directly accessed from the Unity-based application's menu that I have developed. Be sure to follow the provided instructions closely to effectively calibrate your NextMind device.
